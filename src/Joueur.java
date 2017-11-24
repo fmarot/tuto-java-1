@@ -1,34 +1,37 @@
-//import java.util.Scanner;
+import java.util.Scanner;
+
 public class Joueur {
 	String nom;
 	int force;
-	int Rep;
-   
+
 	public Joueur(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 	}
 
-	public int jouerUnTour(String nm, int Score, int Force) {
-		//Scanner sc = new Scanner(System.in);
+	public int jouerUnTour(int Score) {
+		int reponse = 0;
 		
-		switch (Force) {
-    	case 0:
-    		//System.out.println(nm + "Veuillez saisir un nombre entre 1 et 10 compris:");
-    		//int str = sc.nextInt();
-    	    Rep = 5;
-    		System.out.println(nm + ": " + Score + " + " + Rep + " = " + (Score + Rep));
-    		break;
-    	case 4:
-    		Rep = (100-Score) % 11;
-    		//if  (Rep = 0) {
-    		//   Rep = 4;
-    		//}
-    		System.out.println(nm + " : " + Score + " + " + Rep + " = " + (Score + Rep));
-    		break;
-    	}	
-    	Score = Score + Rep;
-    return Score; 
-    }
- }
+		switch (force) {
+		case 0:
+			Scanner sc = new Scanner(System.in);
+			System.out.println(nom + "Veuillez saisir un nombre entre 1 et 10 compris:");
+			reponse = sc.nextInt();
+			System.out.println(this.nom + ": " + Score + " + " + reponse + " = " + (Score + reponse));
+			break;
+		case 4:
+			reponse = (100 - Score) % 11;
+			if (reponse == 0) {
+				reponse = repondreNimporteQuoi();
+			}
+			System.out.println(nom + " : " + Score + " + " + reponse + " = " + (Score + reponse));
+			break;
+		}
+		Score = Score + reponse;
+		return Score;
+	}
 
+	private int repondreNimporteQuoi() {
+		return 4;
+	}
+}

@@ -5,22 +5,18 @@ public class Passer_a_gue {
 
 	public static void main(String[] args) {
 		int lgpont = 0;
-		String nomDernierJoueur = "";
-		Joueur Humain = new Joueur("Vous", 0);
-		Joueur Ordi = new Joueur("Moi", 4);
-		// Humain.Nom = "Vous";
-		// Humain.Force = 0;
-		// Ordi.Nom = "Moi";
-		// Ordi.Force = 4;
+		Joueur joueurEnCours = null;
+
+		Joueur[] joueurs = { new Joueur("Vous", 0), new Joueur("Moi", 4) };
+
+		int indexTour = 0;
 		while (lgpont < VALEUR_CIBLE) {
-			nomDernierJoueur = Humain.nom;
-			lgpont = Humain.jouerUnTour(Humain.nom, lgpont, Humain.force);
-			if (lgpont < VALEUR_CIBLE) {
-				nomDernierJoueur = Ordi.nom;
-				lgpont = Ordi.jouerUnTour(Ordi.nom, lgpont, Ordi.force);
-			}
+			joueurEnCours = joueurs[indexTour % (joueurs.length)];
+			lgpont = joueurEnCours.jouerUnTour(lgpont);
+			indexTour++;
 		}
-		System.out.println("Bravo " + nomDernierJoueur);
+
+		System.out.println("Bravo " + joueurEnCours.nom);
 	}
 
 }
