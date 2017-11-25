@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Joueur {
-	String nom;
-	int force;
+	private String nom;
+	private int force;
 
 	public Joueur(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
-	}
+	} 
 
 	public int jouerUnTour(int Score) {
 		int reponse = 0;
@@ -29,6 +29,10 @@ public class Joueur {
 		}
 		Score = Score + reponse;
 		return Score;
+	}
+	
+	public String getNom() {
+		return nom;
 	}
 
 	private int repondreNimporteQuoi() {

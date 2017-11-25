@@ -16,7 +16,7 @@ public class Passer_a_gue {
 			indexTour++;
 		}
 
-		System.out.println("Bravo " + joueurEnCours.nom);
+		System.out.println("Bravo " + joueurEnCours.getNom());
 	}
 
 }
